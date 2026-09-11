@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Progress & Analytics - StudyBuddy AI</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/dashboard.css">
+</head>
+<body>
+    <!-- App Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark navbar-custom py-3 border-bottom border-secondary border-opacity-25">
+        <div class="container">
+            <a class="navbar-brand fw-bold fs-4 d-flex align-items-center gap-2" href="dashboard.html">
+                <i class="fa-solid fa-graduation-cap text-primary"></i>
+                <span>Study<span class="gradient-text">Buddy AI</span></span>
+            </a>
+            <div class="d-flex align-items-center gap-3">
+                <a href="dashboard.html" class="btn btn-outline-light btn-sm rounded-pill px-3">
+                    <i class="fa-solid fa-house me-1"></i> Dashboard
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Content -->
+    <div class="container py-5">
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <div>
+                <h3 class="fw-bold mb-1"><i class="fa-solid fa-chart-line text-success me-2"></i>My Learning Dashboard & Analytics</h3>
+                <p class="text-secondary small mb-0">Track your strengths, identify weak areas, and follow personalized recommendations.</p>
+            </div>
+        </div>
+
+        <!-- Overall Metrics Stats Grid -->
+        <div class="row g-3 mb-4">
+            <div class="col-md-3 col-6">
+                <div class="stat-card">
+                    <div class="stat-icon bg-primary bg-opacity-25 text-primary"><i class="fa-solid fa-comments"></i></div>
+                    <div>
+                        <div class="fs-4 fw-bold" id="progAsked">0</div>
+                        <div class="text-secondary small">Questions Asked</div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 col-6">
+                <div class="stat-card">
+                    <div class="stat-icon bg-info bg-opacity-25 text-info"><i class="fa-solid fa-file-pdf"></i></div>
+                    <div>
+                        <div class="fs-4 fw-bold" id="progDocs">0</div>
+                        <div class="text-secondary small">PDF Materials</div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 col-6">
+                <div class="stat-card">
+                    <div class="stat-icon bg-warning bg-opacity-25 text-warning"><i class="fa-solid fa-file-pen"></i></div>
+                    <div>
+                        <div class="fs-4 fw-bold" id="progExams">0</div>
+                        <div class="text-secondary small">Exams Taken</div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 col-6">
+                <div class="stat-card">
+                    <div class="stat-icon bg-success bg-opacity-25 text-success"><i class="fa-solid fa-chart-pie"></i></div>
+                    <div>
+                        <div class="fs-4 fw-bold" id="progScore">0%</div>
+                        <div class="text-secondary small">Average Score</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Adaptive Recommendations Grid -->
+        <div class="glass-card p-4 mb-4">
+            <h5 class="fw-bold mb-3"><i class="fa-solid fa-wand-magic-sparkles text-warning me-2"></i>Recommended for You</h5>
+            <div class="row g-3" id="recommendationsContainer">
+                <!-- Dynamically populated -->
+            </div>
+        </div>
+
+        <!-- Strong vs Weak Topics Grid -->
+        <div class="row g-4 mb-4">
+            <div class="col-md-6">
+                <div class="glass-card p-4 h-100">
+                    <h5 class="fw-bold mb-3 text-success"><i class="fa-solid fa-circle-check me-2"></i>Strong Topics (≥70%)</h5>
+                    <div id="strongTopicsList">
+                        <div class="text-secondary small">No strong topics recorded yet. Take an exam to discover your strengths!</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="glass-card p-4 h-100">
+                    <h5 class="fw-bold mb-3 text-warning"><i class="fa-solid fa-triangle-exclamation me-2"></i>Needs Practice (<70%)</h5>
+                    <div id="weakTopicsList">
+                        <div class="text-secondary small">No weak topics detected. Great job!</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Topic Breakdown Table -->
+        <div class="glass-card p-4">
+            <h5 class="fw-bold mb-3"><i class="fa-solid fa-list-check text-primary me-2"></i>Topic-wise Performance Breakdown</h5>
+            <div class="table-responsive">
+                <table class="table table-dark table-hover align-middle mb-0">
+                    <thead>
+                        <tr class="text-secondary">
+                            <th>Subject</th>
+                            <th>Topic</th>
+                            <th>Attempted</th>
+                            <th>Proficiency</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody id="topicPerformanceTable">
+                        <tr><td colspan="5" class="text-center text-secondary py-4">No topic performance data available yet.</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/api.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/progress.js"></script>
+</body>
+</html>
